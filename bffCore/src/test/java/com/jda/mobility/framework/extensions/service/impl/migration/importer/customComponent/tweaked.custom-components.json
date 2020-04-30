@@ -1,0 +1,57 @@
+[ {
+  "uid":"dc841587-75c3-4193-9b12-efbe8424c117",
+  "createdBy":"SUPER",
+  "creationDate":1586021770772,
+  "lastModifiedBy":"super",
+  "lastModifiedDate":1586114626575,
+  "name":"Test-this-out",
+  "fields":[ {
+    "uid":"cc30b114-f32e-4f79-99e0-e1e5a5414dad",
+    "createdBy":"SUPER",
+    "creationDate":1586021770806,
+    "lastModifiedBy":"super",
+    "lastModifiedDate":1586114626575,
+    "productConfigId":"f1f7d384-38ca-442f-b85b-d543b76c0609",
+    "customComponentMaster":"dc841587-75c3-4193-9b12-efbe8424c117",
+    "keys":"textField1",
+    "label":"cc1",
+    "alignment":"left",
+    "style":"primary variant",
+    "styleFontType":"large",
+    "styleFontSize":"12",
+    "styleFontColor":"Secondary",
+    "styleBackgroundColor":"Primary",
+    "styleFontWeight":"bold",
+    "styleWidth":"20",
+    "styleHeight":"20",
+    "stylePadding":"0,0,0,20",
+    "styleMargin":"0,0,0,20",
+    "type":"textfield",
+    "input":true,
+    "tableView":true,
+    "events":[ {
+      "uid":"1a8996ab-0912-4b77-a920-6ca8ff5653e5",
+      "event":"onblur",
+      "action":"{}",
+      "field":"cc30b114-f32e-4f79-99e0-e1e5a5414dad"
+    }, {
+      "uid":"1eda8a59-6cfa-4997-9bd5-5cdc185cf809",
+      "event":"onchange",
+      "action":"{}",
+      "field":"cc30b114-f32e-4f79-99e0-e1e5a5414dad"
+    }, {
+      "uid":"8c6fa6cb-996f-4a8d-b2b7-db98bc7c9de1",
+      "event":"oncomplete",
+      "action":"{}",
+      "field":"cc30b114-f32e-4f79-99e0-e1e5a5414dad"
+    }, {
+      "uid":"e6571a78-0d92-473e-9a34-2899833901b0",
+      "event":"onfocus",
+      "action":"{}",
+      "field":"cc30b114-f32e-4f79-99e0-e1e5a5414dad"
+    } ],
+    "fontSize":"18",
+    "decimalPlaces":"2"
+  } ],
+  "productConfigId":"f1f7d384-38ca-442f-b85b-d543b76c0609"
+} ]

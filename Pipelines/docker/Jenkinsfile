@@ -1,0 +1,44 @@
+def REMOTE_REGISTRY = env.REMOTE_REGISTRY
+def REGISTRY = REMOTE_REGISTRY.replaceFirst( /(^\w+:|^)\\/\\//, '') // strip scheme
+def DOCKER_CREDENTIALS = env.DOCKER_CREDENTIALS ?: null
+def TAG = env.TAG ?: new Date().format("yyyy-MM-dd")
+def IMAGE = env.IMAGE ?: 'mobile-app-builder-api'
+def IMAGE_WITH_TAG = "$IMAGE:$TAG"
+
+pipeline {
+    agent { label 'docker' }
+
+    options {
+        buildDiscarder(logRotator(
+            numToKeepStr: '3',
+            artifactNumToKeepStr: '3',
+            daysToKeepStr: '1'
+        ))
+    }
+
+    stages {
+        stage ('build and push docker image') {
+            steps {
+                script {
+                    docker.withRegistry(REMOTE_REGISTRY, DOCKER_CREDENTIALS) {
+                  		def image = docker.build(IMAGE_WITH_TAG)
+
+                        image.push()
+                        image.push('latest')
+                    }
+                }
+            }
+        }
+
+        stage ('clean up local images') {
+            steps {
+                script {
+                    // Remove the local images. They take up space and since
+                    // we pushed there is no reason to keep them around.
+                    sh "docker rmi -f $REGISTRY/$IMAGE_WITH_TAG"
+                    sh "docker rmi -f $REGISTRY/$IMAGE:latest"
+                }
+            }
+        }
+    }
+}

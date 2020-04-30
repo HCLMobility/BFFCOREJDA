@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    image: ${IMAGE:-mobile-app-builder-api:latest}
+    environment:
+      DATASOURCE_URL: ${DATASOURCE_URL:-host.docker.internal:1433;databaseName=mab}
+      DB_USER: ${DB_USER:-sa}
+      DB_PASSWORD: ${DB_PASSWORD:-RedPrairie1}
+      AUTHENTICATION_STRATEGY: ${AUTHENTICATION_STRATEGY:-BASIC_AUTH}
+      INTERNAL_TOKEN_SECRET: 39c94b8f-5947-449c-8e30-58e5873b25b8
+      JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5076 -Xms1024m -Xmx2048m"
+      PRODUCT_BASE_URI: ${PRODUCT_BASE_URI:-http://host.docker.internal:4500}
+      ACTUATOR_API_KEY: open-sesame
+    ports:
+      - "8080:8080"
+      - "5076:5076"

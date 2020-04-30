@@ -1,0 +1,16 @@
+{
+  "uid":"be0757de-24fc-4f5c-bc52-28ceccb0a2de",
+  "createdBy":"super",
+  "creationDate":1586131347648,
+  "lastModifiedBy":"super",
+  "lastModifiedDate":1586131524214,
+  "defaultFormId":"ba15696a-790f-4c89-81cc-1f28569d2a03",
+  "name":"Test",
+  "productConfig":{
+    "uid":"f1f7d384-38ca-442f-b85b-d543b76c0609"
+  },
+  "version":1,
+  "publishedDefaultFormId":"ba15696a-790f-4c89-81cc-1f28569d2a03",
+  "publishedFlow":true,
+  "published":true
+}

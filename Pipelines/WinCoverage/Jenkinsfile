@@ -1,0 +1,62 @@
+pipeline 
+{
+    agent any
+  	tools 
+	{
+        jdk 'java11'
+      	maven 'Maven'
+    }
+  	environment
+  	{
+      	PATH = "$PATH:/usr/local/bin:/usr/bin"
+    }
+  	options 
+  	{
+      	buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3', daysToKeepStr: '1'))
+    }
+  	stages 
+  	{  
+      stage ('Initialize') 
+		{
+      		steps 
+			{
+          		sh '''
+           		echo "PATH = ${PATH}"
+           		echo "M2_HOME = ${M2_HOME}"
+           		'''
+       		}
+      	}
+      	stage ('Build') 
+		{       		
+          	steps 
+			{
+              	script
+				{
+					Maven_Home = tool 'maven3'
+				}
+           		bat "${Maven_Home}\\bin\\mvn -f pom.xml clean install -Dmaven.test.skip=true"            	
+       		}
+       	}
+      	stage ('SonarQube Analysis') 
+		{
+       		//when 
+			//{ 
+			//	environment name: 'Sonar_Qube', value: 'Yes'
+            //}
+          	steps 
+			{
+              		//sh "mvn install:install-file -Dfile=iam-java-client-3.1.7-with-dependencies.jar -DgroupId=com.jda.iam -DartifactId=iam-java-client -Dversion=3.1.7 -Dpackaging=jar -Dclassifier=with-dependencies"
+					sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore --log-file bffout1.log"
+              		//sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent org.jacoco:jacoco-maven-plugin:report install -Dmaven.test.failure.ignore=false'
+              		sh "mvn sonar:sonar -Dsonar.branch.name=${env.BRANCH_NAME} --log-file bffout2.log"
+       		}
+       	}
+      	//stage('Black Duck Analysis')
+        //{
+        //	steps
+          //  {
+            //    	hub_scan bomUpdateMaximumWaitTime: '5', cleanupOnSuccessfulScan: true, codeLocationName: '', deletePreviousCodeLocations: false, dryRun: false, excludePatterns: [[exclusionPattern: '']], hubProjectName: 'mobility_extcore', hubProjectVersion: '2019.1.0', hubVersionDist: 'EXTERNAL', hubVersionPhase: 'PLANNING', projectLevelAdjustments: true, scanMemory: '4096', scans: [[scanTarget: 'bffApiManagement'], [scanTarget: 'bffCore'], [scanTarget: 'bffDataManagement'], [scanTarget: 'bffProductManagement'], [scanTarget: 'bffWebManagement'], [scanTarget: 'JDASwaggerParser']], shouldGenerateHubReport: false, unmapPreviousCodeLocations: false    
+           // }
+        //}
+	}
+}

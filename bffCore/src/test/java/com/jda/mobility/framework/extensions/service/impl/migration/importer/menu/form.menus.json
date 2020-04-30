@@ -1,0 +1,53 @@
+[ {
+  "uid":"4e3a0be2-4e35-4ff4-af6c-51bfde182d90",
+  "createdBy":"super",
+  "creationDate":1586133982110,
+  "lastModifiedBy":"super",
+  "lastModifiedDate":1586134226923,
+  "sequence":1,
+  "productProperty":{
+    "uid":"52dc4750-91a3-4943-8705-5b187a440bd6",
+    "name":"WMS",
+    "secondaryRef":true
+  },
+  "menuName":"menu-2",
+  "menupermission":[ {
+    "uid":"7fabed7f-4187-4e78-9444-12befc11a38b",
+    "permission":"footprint_delete",
+    "menu":"4e3a0be2-4e35-4ff4-af6c-51bfde182d90"
+  } ],
+  "linkedFormId":"c8755d0e-c896-4f71-88ce-34064ff09ed6",
+  "iconName":"",
+  "iconAlignment":"left",
+  "menuType":{
+    "uid":"1a44f2b6-7dd9-49f0-9c3d-10dfda0380ca",
+    "type":"FORM_CONTEXT"
+  },
+  "action":"NAVIGATE_TO_WORKFLOW",
+  "properties":"{\"workflow\":{\"defaultFormId\":\"ba15696a-790f-4c89-81cc-1f28569d2a03\",\"flowId\":\"be0757de-24fc-4f5c-bc52-28ceccb0a2de\",\"modalForm\":false,\"name\":\"Test\",\"tabbedForm\":false,\"version\":1}}"
+}, {
+  "uid":"a1f3b34a-f183-4cc0-9bfc-a7ce5128c1b7",
+  "createdBy":"super",
+  "creationDate":1586133982093,
+  "lastModifiedBy":"super",
+  "lastModifiedDate":1586134226941,
+  "sequence":2,
+  "productProperty":{
+    "uid":"52dc4750-91a3-4943-8705-5b187a440bd6",
+    "name":"WMS",
+    "secondaryRef":true
+  },
+  "menuName":"menu-1",
+  "menupermission":[ {
+    "uid":"e139b24b-f665-40c8-9b0f-e664963527c3",
+    "permission":"footprint_add",
+    "menu":"a1f3b34a-f183-4cc0-9bfc-a7ce5128c1b7"
+  } ],
+  "linkedFormId":"c8755d0e-c896-4f71-88ce-34064ff09ed6",
+  "iconName":"",
+  "iconAlignment":"left",
+  "menuType":"1a44f2b6-7dd9-49f0-9c3d-10dfda0380ca",
+  "action":"INVOKE_URL",
+  "properties":"{\"url\":\"http://example.com\"}",
+  "hotKeyName":"Shft_O"
+} ]

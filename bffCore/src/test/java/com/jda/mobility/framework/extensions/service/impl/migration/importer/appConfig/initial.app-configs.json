@@ -1,0 +1,231 @@
+[ {
+  "configName":"BOTTOMMARGIN",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"BOTTOMPADDING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"CENTREPADDING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"CONTROLSPACING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"30"
+  } ]
+}, {
+  "configName":"DEFAULT_FLOW_ID",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"07af4433-b67d-4c86-ac30-b21f87ac74b3"
+  } ]
+}, {
+  "configName":"ENABLE_DETAIL_LOG",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"false"
+  } ]
+}, {
+  "configName":"ERRORCOLOR",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"#FF0000"
+  } ]
+}, {
+  "configName":"ERRORFONT",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"16"
+  } ]
+}, {
+  "configName":"FLOATINGLABEL_COLOR",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"#0000FF"
+  } ]
+}, {
+  "configName":"FLOATINGLABEL_FONTSIZE",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"14"
+  } ]
+}, {
+  "configName":"HINTCOLOR",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"#A9A9A9"
+  } ]
+}, {
+  "configName":"HINTFONT",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"14"
+  } ]
+}, {
+  "configName":"HOME_FLOW_ID",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"be0757de-24fc-4f5c-bc52-28ceccb0a2de"
+  } ]
+}, {
+  "configName":"IMAGECACHEDURATION",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"45"
+  } ]
+}, {
+  "configName":"LABELCOLOR",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"#0000FF"
+  } ]
+}, {
+  "configName":"LABELFONT",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"16"
+  } ]
+}, {
+  "configName":"LEFTMARGIN",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"LEFTPADDING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"PLACEHOLDERCOLOR",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"#A9A9A9"
+  } ]
+}, {
+  "configName":"PLACEHOLDERFONT",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"16"
+  } ]
+}, {
+  "configName":"RIGHTMARGIN",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"RIGHTPADDING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"SEPARATORCOLOR",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"#D3D3D3"
+  } ]
+}, {
+  "configName":"SEPARATORHEIGHT",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"1"
+  } ]
+}, {
+  "configName":"SEPARATORSPACING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"SESSION_RECORDING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"false"
+  } ]
+}, {
+  "configName":"SESSION_TIMEOUT",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"60"
+  } ]
+}, {
+  "configName":"SPACING_LABELNCONTROL",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"STYLE",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"Outlined"
+  } ]
+}, {
+  "configName":"TOOLBAR_TITLE_ALIGNMENT",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":null
+  } ]
+}, {
+  "configName":"TOPMARGIN",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"TOPPADDING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"10"
+  } ]
+}, {
+  "configName":"WarehouseName",
+  "configType":"GLOBAL"
+}, {
+  "configName":"DeviceID",
+  "configType":"GLOBAL"
+} ]

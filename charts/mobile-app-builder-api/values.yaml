@@ -1,0 +1,75 @@
+# Default values for mobile-app-builder-api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+port: 8080
+debugPort: 5076
+
+image:
+  repository: jdasoftware-docker-release-local.jfrog.io/mobile-app-builder-api
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+ingress:
+  enabled: false
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: LoadBalancer
+  port: 8080
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+environment:
+  JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5076 -Xms1024m -Xmx2048m"
+  # Other relevant variables:
+  # DATASOURCE_URL: (no default value, must be configured when the chart is installed)
+  # PRODUCT_BASE_URI: (no default value, must be configured when the chart is installed)
+  # AUTHENTICATION_STRATEGY: BASIC_AUTH | OPENID (server defaults to BASIC_AUTH)
+  # OIDC_PROVIDER_URL: (no default value, must be configured if OPENID strategy is enabled)
+  # OIDC_CLIENT_ID: (no default value, must be configured if OPENID strategy is enabled)
+  # OIDC_AUDIENCE: (no default value, must be configured if OPENID strategy is enabled)
+
+secrets: {}
+
+global: {}

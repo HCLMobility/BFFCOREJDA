@@ -1,0 +1,69 @@
+pipeline 
+{
+	agent any
+  	parameters
+	{
+        choice(choices: ['No', 'Yes'], description: 'Select the Choice', name: 'Black_Duck')
+        choice(choices: ['Yes', 'No'], description: 'Select the Choice', name: 'Sonar_Qube')
+        choice(choices: ['No', 'Yes'], description: 'Select the Choice', name: 'Check_Marx')
+    }
+	tools 
+	{
+		maven 'Maven'
+        jdk 'java11'
+    }
+  	options 
+  	{
+      	buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3', daysToKeepStr: '1'))
+    }
+    stages 
+	{
+        stage ('Initialize') 
+		{
+      		steps 
+			{
+          		sh '''
+           		echo "PATH = ${PATH}"
+           		echo "M2_HOME = ${M2_HOME}"
+           		'''
+       		}
+      	}
+      	stage ('SonarQube Analysis') 
+		{
+       		when 
+			{ 
+				environment name: 'Sonar_Qube', value: 'Yes'
+            }
+          	steps 
+			{
+              		//sh "mvn install:install-file -Dfile=iam-java-client-3.1.7-with-dependencies.jar -DgroupId=com.jda.iam -DartifactId=iam-java-client -Dversion=3.1.7 -Dpackaging=jar -Dclassifier=with-dependencies"
+					sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore --log-file bffout1.log"
+              		//sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent org.jacoco:jacoco-maven-plugin:report install -Dmaven.test.failure.ignore=false'
+              		sh "mvn sonar:sonar -Dsonar.branch.name=${env.BRANCH_NAME} --log-file bffout2.log"
+       		}
+       	}
+        stage('Black Duck Analysis')
+        {
+            when 
+		 	{ 
+        	   	environment name: 'Black_Duck', value: 'Yes'
+            }
+            steps
+            {
+            	//hub_scan bomUpdateMaximumWaitTime: '5', cleanupOnSuccessfulScan: true, codeLocationName: '', deletePreviousCodeLocations: false, dryRun: false, excludePatterns: [[exclusionPattern: '']], hubProjectName: 'mobility_extcore', hubProjectVersion: '2019.1.0', hubVersionDist: 'EXTERNAL', hubVersionPhase: 'PLANNING', projectLevelAdjustments: true, scanMemory: '4096', scans: [[scanTarget: 'bffApiManagement'], [scanTarget: 'bffCore'], [scanTarget: 'bffDataManagement'], [scanTarget: 'bffProductManagement'], [scanTarget: 'bffWebManagement'], [scanTarget: 'JDASwaggerParser']], shouldGenerateHubReport: false, unmapPreviousCodeLocations: false    
+            	hub_detect '--detect.project.name=mobility_extcore --detect.project.version.name=2019.1.0 --logging.level.com.blackducksoftware.integration=DEBUG --detect.source.path="./"'
+            }
+        }
+        stage('Checkmarx')
+        {
+        	when 
+          	{ 
+            	environment name: 'Check_Marx', value: 'Yes'
+            }
+            steps
+            {
+            	step([$class: 'CxScanBuilder', comment: '', credentialsId: '', excludeFolders: '.git', excludeOpenSourceFolders: '', exclusionsSetting: 'job', failBuildOnNewResults: false, failBuildOnNewSeverity: 'HIGH', filterPattern: '**/*.*', fullScanCycle: 10, generatePdfReport: true, groupId: '821d7216-8d61-4b10-9614-96b27e3b6ecd', includeOpenSourceFolders: '', osaArchiveIncludePatterns: '*.zip, *.war, *.ear, *.tgz', osaInstallBeforeScan: false, password: '{AQAAABAAAAAQFb+6VqibJpAKaxbU0pwt6A4ajq6RYFGOdwk2wKSkJe8=}', preset: '36', projectName: 'mobility_extcore', serverUrl: 'https://checkmarx.jda.com', sourceEncoding: '5', username: '', vulnerabilityThresholdResult: 'FAILURE', waitForResultsEnabled: true])
+            }
+        }
+	}
+}

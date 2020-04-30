@@ -1,0 +1,26 @@
+[ {
+  "locale":"en-US",
+  "rbkey":"a-label",
+  "rbvalue":"AAAAA",
+  "type":"ADMIN_UI"
+}, {
+  "locale":"en-US",
+  "rbkey":"disabled-button-maybe",
+  "rbvalue":"Possibly Disabled",
+  "type":"ADMIN_UI"
+}, {
+  "locale":"en-US",
+  "rbkey":"fancy-label",
+  "rbvalue":"Fancy Labeled Button!",
+  "type":"ADMIN_UI"
+}, {
+  "locale":"en-US",
+  "rbkey":"menu-1",
+  "rbvalue":"Menu 1",
+  "type":"ADMIN_UI"
+}, {
+  "locale":"en-US",
+  "rbkey":"menu-2",
+  "rbvalue":"Too",
+  "type":"ADMIN_UI"
+} ]

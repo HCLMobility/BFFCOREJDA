@@ -1,0 +1,5 @@
+FROM jdasoftware-docker-release-local.jfrog.io/bffcore:base
+WORKDIR /tmp
+COPY bffWebManagement-0.0.1-SNAPSHOT.jar .
+EXPOSE 8080
+ENTRYPOINT ["java", "-Dserver.port=8080", "-Dspring.profiles.active=dev", "-Xms1024m", "-Xmx2048m", "-jar", "bffWebManagement-0.0.1-SNAPSHOT.jar"]

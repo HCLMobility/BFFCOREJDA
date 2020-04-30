@@ -1,0 +1,11 @@
+FROM centos:centos7
+WORKDIR /tmp
+RUN yum -y update
+RUN yum -y install wget telnet net-tools
+COPY jdk-11.0.5_linux-x64_bin.rpm .
+RUN rpm -ivh jdk-11.0.5_linux-x64_bin.rpm
+COPY apache-maven-3.6.3-bin.tar.gz .
+RUN tar -C /usr -xvf apache-maven-3.6.3-bin.tar.gz
+ENV JAVA_HOME /usr/java/jdk-11.0.5
+ENV M2_HOME /usr/apache-maven-3.6.3
+ENV PATH $PATH:$M2_HOME/bin

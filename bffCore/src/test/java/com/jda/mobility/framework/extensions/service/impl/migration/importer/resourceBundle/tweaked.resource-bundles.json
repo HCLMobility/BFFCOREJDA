@@ -1,0 +1,11 @@
+[ {
+  "locale":"en-US",
+  "rbkey":"fancy-label",
+  "rbvalue":"Fancy Labeled Button! with extra text",
+  "type":"ADMIN_UI"
+}, {
+  "locale":"fr-FR",
+  "rbkey":"newOne",
+  "rbvalue":"Nouveau",
+  "type":"ADMIN_UI"
+} ]

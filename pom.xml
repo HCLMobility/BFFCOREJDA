@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jda.mobility.framework</groupId>
+	<artifactId>bffApplicationParent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>bffApplicationParent</name>
+	<description>Parent project for bffApplication</description>
+
+	<properties>
+		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<jacoco.plugin.version>0.8.5</jacoco.plugin.version>
+		<sonar.exclusions>
+			**/*com/jda/mobility/framework/extensions/model/**,
+			**/*com/jda/mobility/framework/extensions/entity/**,
+			**/*com/jda/mobility/framework/extensions/repository/**
+		</sonar.exclusions>
+	</properties>
+
+	<modules>
+		<module>bffWebManagement</module>
+		<module>bffCore</module>
+		<module>bffDataManagement</module>
+	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>com.jda.mobility.framework</groupId>
+			<artifactId>bffCore</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jda.mobility.framework</groupId>
+			<artifactId>bffWebManagement</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>	
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.5</version>
+				<executions>
+					<execution>
+						<id>report</id>
+						<goals>
+							<goal>report-aggregate</goal>
+						</goals>
+						<phase>verify</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

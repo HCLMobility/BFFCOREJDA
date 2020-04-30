@@ -1,0 +1,35 @@
+[ {
+  "apiType":"INTERNAL",
+  "apiVersion":"2.0",
+  "basePath":"/api/yard/v1beta",
+  "contextPath":"jdawaapi.jdadelivers.com",
+  "helperClass":null,
+  "name":"yard",
+  "port":null,
+  "versionId":0,
+  "roleMaster":{
+    "uid":"90793cab-8d1a-469e-9cc8-cd4cbd4a042c",
+    "name":"JDA Product Development",
+    "level":0
+  }
+}, {
+  "apiType":"INTERNAL",
+  "apiVersion":"2.0",
+  "basePath":"/api/picking/v1beta",
+  "contextPath":"jdawaapi.jdadelivers.com",
+  "helperClass":null,
+  "name":"picking",
+  "port":null,
+  "versionId":0,
+  "roleMaster": "90793cab-8d1a-469e-9cc8-cd4cbd4a042c"
+}, {
+  "apiType":"INTERNAL",
+  "apiVersion":"2.0",
+  "basePath":"/api/device/v1beta",
+  "contextPath":"jdawaapi.jdadelivers.com",
+  "helperClass":null,
+  "name":"device",
+  "port":null,
+  "versionId":0,
+  "roleMaster": "90793cab-8d1a-469e-9cc8-cd4cbd4a042c"
+}]

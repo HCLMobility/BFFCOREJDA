@@ -1,0 +1,11 @@
+[ {
+  "configName":"bad",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":"first",
+    "configValue":"30"
+  }, {
+    "description":"second",
+    "configValue":"hi"
+  } ]
+} ]

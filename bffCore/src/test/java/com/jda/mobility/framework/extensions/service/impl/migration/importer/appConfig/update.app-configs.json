@@ -1,0 +1,43 @@
+[ {
+  "configName":"BOTTOMMARGIN",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"11"
+  } ]
+}, {
+  "configName":"BOTTOMPADDING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"11"
+  } ]
+}, {
+  "configName":"CENTREPADDING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"11"
+  } ]
+}, {
+  "configName":"CONTROLSPACING",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"31"
+  } ]
+}, {
+  "configName":"DEFAULT_FLOW_ID",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"aaaaaaaa-b67d-4c86-ac30-b21f87ac74b3"
+  } ]
+}, {
+  "configName":"HOME_FLOW_ID",
+  "configType":"APPLICATION",
+  "appConfigDetails":[ {
+    "description":null,
+    "configValue":"aaaaaaaa-b67d-4c86-ac30-b21f87ac74b3"
+  } ]
+} ]

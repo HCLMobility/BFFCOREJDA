@@ -1,0 +1,66 @@
+pipeline 
+{
+	agent any
+  	options 
+  	{
+      	buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3', daysToKeepStr: '1'))
+    }
+  	parameters
+	{
+        choice(choices: ['10.0.19.226', '10.0.48.126'], description: 'Select deployment server', name: 'SERVER_IP')
+    }
+	tools 
+	{
+		maven 'Maven'
+        jdk 'java11'
+    }
+    stages 
+	{
+        stage ('Initialize') 
+		{
+      		steps 
+			{
+          		sh '''
+           		echo "PATH = ${PATH}"
+           		echo "M2_HOME = ${M2_HOME}"
+           		'''
+       		}
+      	}
+      	stage ('Build') 
+		{
+       		steps 
+			{
+           		sh 'mvn -f pom.xml clean install -Dmaven.test.skip=true'              	
+              	sh "scp bffWebManagement/target/*.jar 1024257@${SERVER_IP}:~/DockerFiles/bffcore/"
+              	sh "scp Pipelines/Dockerfile_extcore 1024257@${SERVER_IP}:~/DockerFiles/bffcore/"
+       		}
+       	}
+      	stage ('Deploy')
+      	{
+          	steps
+          	{
+              	sh "ssh 1024257@${SERVER_IP} \'cd ~/DockerFiles/bffcore;docker build -t bffcore:sprint9 . -f Dockerfile_extcore\'"
+              	sh "ssh 1024257@${SERVER_IP} \'docker run -p 8080:8080 -d bffcore:sprint9\'"
+            }            
+        }
+	}
+  	post 
+  	{
+    	success 
+      	{
+        	archiveArtifacts artifacts: "bffWebManagement/target/*.jar"
+          	rtUpload (
+    		serverId: "jdaartifactory",
+    		spec:
+        	"""{
+          		"files": [
+           		 {
+            		  "pattern": "bffWebManagement/target/*.jar",
+            		  "target": "libs-snapshot-local/com/jda/mobility/framework/"
+           		 }
+         		]
+        	}"""
+			)
+       	} 
+    }
+}

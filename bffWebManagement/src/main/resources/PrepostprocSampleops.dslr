@@ -1,0 +1,26 @@
+Include Libraries
+
+Step "OrchExecution"
+	Priority 3
+	Orchestration "SAMPLEOPS"
+	when 
+		Get Inputs
+	then
+		Say "***Sample operations pre/post-processor execution begins now****" 	
+		
+		Insert "Test1" with "Hello world" of type "text"  at "/currentLocation"
+		
+		Replace "deviceMode" with "TESTDEVICECODE" of type "text"  at "/"
+		Replace "Test1" with "Updated from Helloworld" of type "text"  at "/currentLocation"
+		
+		Remove "deviceMode" at "/currentLocation/deviceMode"
+		
+		Change date format at "/currentLocation/WorkDate" from "MM/dd/yy" to "dd/MM/yyyy"
+		
+		Create a new request object from fields "deviceCode,WorkArea,Price" with values "RDT002,WMD,90.9" of types "text,text,decimal"
+		
+		"PRE" APPEND  "Pick " to the value at "/Type"
+		
+	    Say "***Sample operations pre/post-processor execution ends now****" 	
+
+end

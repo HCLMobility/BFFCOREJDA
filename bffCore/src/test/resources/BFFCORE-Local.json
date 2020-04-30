@@ -1,0 +1,373 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "BFFCORE APIs for MobileRenderer Testing Purpose",
+		"version": "1.0",
+		"title": "BFFCORE APIs for MobileRenderer Testing Purpose"
+	},
+	"host": "3.136.140.39:80",
+	"basePath": "/api/product/v1",
+	"paths": {
+		"/brandlogo/list": {
+			"get": {
+				"tags": [
+					"Brand Logo List API"
+				],
+				"summary": "A GET endpoint used for getting brandlogo list",
+				"operationId": "getBrandLogos",
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/BrandLogosResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/brandlogo": {
+			"get": {
+				"tags": [
+					"Single Brand Logo API"
+				],
+				"summary": "A GET endpoint used for getting single brand logo",
+				"operationId": "getSingleBrandLogo",
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/BrandLogo"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/mixeddata": {
+			"get": {
+				"tags": [
+					"Mixed Data API"
+				],
+				"summary": "A GET endpoint used for getting mixed data",
+				"operationId": "getMixedData",
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/MixedDataResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/mixeddata/list": {
+			"get": {
+				"tags": [
+					"Mixed Data List API"
+				],
+				"summary": "A GET endpoint used for getting mixed data list",
+				"operationId": "getMixedDataList",
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/MixedDatasResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/search": {
+			"post": {
+				"tags": [
+					"Auto Complete API"
+				],
+				"summary": "Resource bundles search based on sourceName and searchTerm.",
+				"operationId": "search",
+				"parameters": [{
+						"in": "body",
+						"name": "searchRequest",
+						"description": "contains all the input fields needed to login.\n",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/searchRequest"
+						}
+					},
+					{
+						"name": "authCookie",
+						"in": "path",
+						"description": "(Required) searchTerm.\n",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Getsuccessresponse"
+						}
+					},
+					"400": {
+						"description": "Bad Request",
+						"schema": {
+							"$ref": "#/definitions/ErrorResponse"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"BrandLogosResponse": {
+			"type": "object",
+			"properties": {
+				"BrandLogoList": {
+					"type": "array",
+					"items": {
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"url": {
+								"type": "string"
+							},
+							"description": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		},
+		"BrandLogo": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"url": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				}
+			},
+			"title": "ImageDetails"
+		},
+		"MixedDatasResponse": {
+			"type": "object",
+			"properties": {
+				"MixedDataList": {
+					"type": "array",
+					"items": {
+						"properties": {
+							"strattribute": {
+								"type": "string"
+							},
+							"defattribute": {
+								"type": "string"
+							},
+							"intattribute": {
+								"type": "integer",
+								"format": "int32"
+							},
+							"floatattribute": {
+								"type": "number",
+								"format": "float"
+							},
+							"doubleattribute": {
+								"type": "number",
+								"format": "double"
+							},
+							"datetimeattribute": {
+								"type": "string"
+							},
+							"dateattribute": {
+								"type": "string"
+							},
+							"timeattribute": {
+								"type": "string"
+							},
+							"booleanattribute": {
+								"type": "boolean"
+							},
+							"arrayattribute": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"MixedDataResponse": {
+			"type": "object",
+			"properties": {
+				"strattribute": {
+					"type": "string"
+				},
+				"defattribute": {
+					"type": "string"
+				},
+				"intattribute": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"floatattribute": {
+					"type": "number",
+					"format": "float"
+				},
+				"doubleattribute": {
+					"type": "number",
+					"format": "double"
+				},
+				"datetimeattribute": {
+					"type": "string"
+				},
+				"dateattribute": {
+					"type": "string"
+				},
+				"timeattribute": {
+					"type": "string"
+				},
+				"booleanattribute": {
+					"type": "boolean"
+				},
+				"arrayattribute": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"title": "MixedDataResponse",
+			"description": "returns mixed data"
+		},
+		"searchRequest": {
+			"type": "object",
+			"required": [
+				"searchType",
+				"searchTerm"
+			],
+			"properties": {
+				"searchType": {
+					"type": "string"
+				},
+				"searchTerm": {
+					"type": "string"
+				}
+			}
+		},
+		"ErrorResponse": {
+			"type": "object",
+			"properties": {
+				"timestamp": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"code": {
+					"type": "string"
+				},
+				"message": {
+					"type": "string"
+				},
+				"errors": {
+					"$ref": "#/definitions/errors"
+				}
+			}
+		},
+		"Getsuccessresponse": {
+			"type": "object",
+			"properties": {
+				"timestamp": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"code": {
+					"type": "string"
+				},
+				"message": {
+					"type": "string"
+				},
+				"details": {
+					"$ref": "#/definitions/GetDetails"
+				}
+			}
+		},
+		"errors": {
+			"type": "object",
+			"properties": {
+				"errorCode": {
+					"type": "string"
+				},
+				"userMessage": {
+					"type": "string"
+				}
+			}
+		},
+		"GetDetails": {
+			"type": "object",
+			"properties": {
+				"detailedMessage": {
+					"type": "string"
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}
